@@ -41,6 +41,30 @@ public class WeatheringGui extends JFrame {
         searchTextField.setFont(new Font("Dialog", Font.PLAIN, 24));
 
         add(searchTextField);
+
+        // search button
+        JButton searchButton = new JButton(loadImage("src/assets/search.png"));
+
+        // change the cursor to a hand cursor when hovering over this button
+        searchButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        searchButton.setBounds(375, 13, 47, 45);
+        add(searchButton);
+    }
+
+    // used to create images in our gui components
+    private ImageIcon loadImage(String resourcePath){
+        try{
+            // read the image file from the path given
+            BufferedImage image = ImageIO.read(new File(resourcePath));
+
+            // returns an image icon so that our component can render it
+            return new ImageIcon(image);
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+
+        System.out.println("Could not find resource");
+        return null;
     }
 }
 
