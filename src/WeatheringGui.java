@@ -49,6 +49,11 @@ public class WeatheringGui extends JFrame {
         searchButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         searchButton.setBounds(375, 13, 47, 45);
         add(searchButton);
+
+        // weather image
+        JLabel weatherConditionImage = new JLabel(loadImage("src/assets/cloudy.png"));
+        weatherConditionImage.setBounds(0, 125, 450, 217);
+        add(weatherConditionImage);
     }
 
     // used to create images in our gui components
