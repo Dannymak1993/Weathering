@@ -52,7 +52,7 @@ public class WeatheringGui extends JFrame {
         add(weatherConditionImage);
 
         // temperature text
-        JLabel temperatureText = new JLabel("10 C");
+        JLabel temperatureText = new JLabel("80 F");
         temperatureText.setBounds(0, 350, 450, 54);
         temperatureText.setFont(new Font("Dialog", Font.BOLD, 48));
 
@@ -132,7 +132,7 @@ public class WeatheringGui extends JFrame {
 
                                                // update temperature text
                                                double temperature = (double) weatherData.get("temperature");
-                                               temperatureText.setText(temperature + " C");
+                                               temperatureText.setText(temperature + " F");
 
                                                // update weather condition text
                                                weatherConditionDesc.setText(weatherCondition);
@@ -143,7 +143,7 @@ public class WeatheringGui extends JFrame {
 
                                                // update windspeed text
                                                double windspeed = (double) weatherData.get("windspeed");
-                                               windspeedText.setText("<html><b>Windspeed</b> " + windspeed + "km/h</html>");
+                                               windspeedText.setText("<html><b>Windspeed</b> " + windspeed + "mph</html>");
                                            }
                                        });
         add(searchButton);
