@@ -1,3 +1,5 @@
+import org.json.simple.JSONObject;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -8,6 +10,8 @@ import java.io.File;
 import java.io.IOException;
 
 public class WeatheringGui extends JFrame {
+    private JSONObject weatherData;
+
     public WeatheringGui(){
         // setup our gui and add a title
         super("Weather App");
@@ -102,6 +106,29 @@ public class WeatheringGui extends JFrame {
                                                    return;
                                                }
 
+                                               // retrieve weather data
+                                               weatherData = WeatherApp.getWeatherData(userInput);
+
+                                               // update gui
+
+                                               // update weather image
+                                               String weatherCondition = (String) weatherData.get("weather_condition");
+
+                                               // depending on the condition, we will update the weather image that corresponds with the condition
+                                               switch(weatherCondition){
+                                                   case "Clear":
+                                                       weatherConditionImage.setIcon(loadImage("src/assets/clear.png"));
+                                                       break;
+                                                   case "Cloudy":
+                                                       weatherConditionImage.setIcon(loadImage("src/assets/cloudy.png"));
+                                                       break;
+                                                   case "Rain":
+                                                       weatherConditionImage.setIcon(loadImage("src/assets/rain.png"));
+                                                       break;
+                                                   case "Snow":
+                                                       weatherConditionImage.setIcon(loadImage("src/assets/snow.pngImage"));
+                                                       break;
+                                               }
                                            }
                                        })
         add(searchButton);
