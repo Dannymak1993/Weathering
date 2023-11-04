@@ -186,7 +186,7 @@ public class WeatherApp {
         // get current date and time
         LocalDateTime currentDateTime = LocalDateTime.now();
 
-        // format date to be 2023-09-02T00:00 (this is how is is read in the API)
+        // format date to be 2023-09-02T00:00 (this is how it is read in the API)
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH':00'");
 
         // format and print the current date and time

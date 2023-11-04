@@ -42,14 +42,6 @@ public class WeatheringGui extends JFrame {
 
         add(searchTextField);
 
-        // search button
-        JButton searchButton = new JButton(loadImage("src/assets/search.png"));
-
-        // change the cursor to a hand cursor when hovering over this button
-        searchButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        searchButton.setBounds(375, 13, 47, 45);
-        add(searchButton);
-
         // weather image
         JLabel weatherConditionImage = new JLabel(loadImage("src/assets/cloudy.png"));
         weatherConditionImage.setBounds(0, 125, 450, 217);
@@ -92,6 +84,27 @@ public class WeatheringGui extends JFrame {
         windspeedText.setBounds(310, 500, 85, 55);
         windspeedText.setFont(new Font("Dialog", Font.PLAIN, 16));
         add(windspeedText);
+
+        // search button
+        JButton searchButton = new JButton(loadImage("src/assets/search.png"));
+
+        // change the cursor to a hand cursor when hovering over this button
+        searchButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        searchButton.setBounds(375, 13, 47, 45);
+        searchButton.addActionListener(new ActionListener() {
+                                           @Override
+                                           public void actionPerformed(ActionEvent e) {
+                                               // get location from user
+                                               String userInput = searchTextField.getText();
+
+                                               // validate input - remove whitespace to ensure non-empty text
+                                               if (userInput.replaceAll("\\s", "").length() <= 0) {
+                                                   return;
+                                               }
+
+                                           }
+                                       })
+        add(searchButton);
     }
 
     // used to create images in our gui components
