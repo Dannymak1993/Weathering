@@ -129,8 +129,23 @@ public class WeatheringGui extends JFrame {
                                                        weatherConditionImage.setIcon(loadImage("src/assets/snow.pngImage"));
                                                        break;
                                                }
+
+                                               // update temperature text
+                                               double temperature = (double) weatherData.get("temperature");
+                                               temperatureText.setText(temperature + " C");
+
+                                               // update weather condition text
+                                               weatherConditionDesc.setText(weatherCondition);
+
+                                               // update humidity text
+                                               long humidity = (long) weatherData.get("humidity");
+                                               humidityText.setText("<html><b>Humidity</b> " + humidity + "%</html>");
+
+                                               // update windspeed text
+                                               double windspeed = (double) weatherData.get("windspeed");
+                                               windspeedText.setText("<html><b>Windspeed</b> " + windspeed + "km/h</html>");
                                            }
-                                       })
+                                       });
         add(searchButton);
     }
 
